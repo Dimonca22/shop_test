@@ -80,10 +80,21 @@ WSGI_APPLICATION = 'siteblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'magazin',
+        'USER': 'dima',
+        'PASSWORD': 'test_magazin',
+        'HOST': 'localhost',
+        'PORT': '54321',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

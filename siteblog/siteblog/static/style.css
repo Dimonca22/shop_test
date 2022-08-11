@@ -38,7 +38,7 @@
 .wrapper header.header .logo h2 a {
     color: #061e37;
     font-family: "Raleway", sans-serif;
-    font-size: 20px;
+    font-size: 35px;
     font-weight: 700;
     text-decoration: none;
     line-height: 70px;
@@ -75,19 +75,19 @@
 }
 
 .wrapper header.header .menu ul li.active a {
-    background: #40c4ff;
+    background: #fdb05e;
     color: #fff;
 }
 
 .wrapper header.header .menu ul li a:hover {
-    background: #40c4ff;
+    background: #fdb05e;
     color: #fff;
 }
 
 .wrapper section.bg-text-area .bg-text {
-    background-image: url(img/front1.JPG);
+    background-image: url(img/front3.JPG);
     background-size: 100% 100%;
-    padding: 205px 400px;
+    padding: 300px 400px;
 }
 
 .wrapper section.bg-text-area .container {}

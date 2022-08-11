@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from django.utils.safestring import mark_safe
 
 from .models import *
 
 
-class PostAdminForm(forms.ModelForm):
+class ProductAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
@@ -15,7 +16,19 @@ class PostAdminForm(forms.ModelForm):
 
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    form = PostAdminForm
+    form = ProductAdminForm
+    save_on_top = True
+    list_display = ('title','category','get_image','price','available')
+    search_fields = ('title',)
+    list_filter = ('category',)
+    readonly_fields = ('views',)
+
+    def get_image(self,obj):
+        if obj.image:
+            return mark_safe(f'<img src="{obj.image.url}"width="50">')
+        return '-'
+
+    get_image.short_description = 'Фото'
 
 
 class CategoryAdmin(admin.ModelAdmin):

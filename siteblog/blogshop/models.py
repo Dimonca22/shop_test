@@ -22,7 +22,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     content = models.TextField(blank=True)
     views = models.IntegerField(default=0, verbose_name='Кол-во просмотров')
-    available = models.BooleanField(default=True)
+    available = models.BooleanField(default=True,verbose_name='В наличии')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

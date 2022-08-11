@@ -5,7 +5,7 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from .models import *
 
 
-class ProductAdminForm(forms.ModelForm):
+class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
@@ -13,13 +13,13 @@ class ProductAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
-class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('title',)}
-
-
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    form = ProductAdminForm
+    form = PostAdminForm
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Category, CategoryAdmin)

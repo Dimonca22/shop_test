@@ -35,5 +35,8 @@ class Product(models.Model):
         verbose_name_plural = 'Белье'
         index_together = (('id', 'slug'),)
 
+    def get_absolute_url(self):
+        return reverse('post', kwargs={"slug": self.slug})
+
     def __str__(self):
         return self.title

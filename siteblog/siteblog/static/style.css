@@ -118,13 +118,13 @@ section.blog-post-area {
 
 section.blog-post-area .big-image {
     float: left;
-    width: 50%;
+    width: 60%;
     padding-right: 35px;
 }
 
 section.blog-post-area .big-text {
     float: right;
-    width: 50%;
+    width: 40%;
     padding-right: 20px;
 }
 

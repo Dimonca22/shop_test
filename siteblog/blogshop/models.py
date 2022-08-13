@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -6,12 +7,14 @@ class Category(models.Model):
     slug = models.SlugField(max_length=200, db_index=True, verbose_name='Url', unique=True)
 
     class Meta:
-        ordering = ('title',)
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={"slug": self.slug})
 
 
 class Product(models.Model):
@@ -22,7 +25,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     content = models.TextField(blank=True)
     views = models.IntegerField(default=0, verbose_name='Кол-во просмотров')
-    available = models.BooleanField(default=True,verbose_name='В наличии')
+    available = models.BooleanField(default=True, verbose_name='В наличии')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

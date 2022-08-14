@@ -1,0 +1,97 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %} {{title}}:{{block.super}} {% endblock %}
+
+{% block content %}
+
+<section class="bg-text-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bg-text">
+                    <h3>MILTIM LINGERIE </h3>
+                    <p>HANDMADE UNDERWEAR </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="blog-post-area-style">
+                <div class="col-md-11">
+                    <div class="single-post-big">
+                        <div class="big-image">
+                            <img src="{% static 'img/front3.png' %}" alt="">
+                        </div>
+                        <div class="big-text">
+                            <h2>About us</h2>
+                            <p>Women's underwear is one of the main ways to
+                                express your femininity on a very subtle level.
+                                It is very important to be feminine from head
+                                to toe, internally and externally. Being alone
+                                with a man, you surprised him a lot by showing
+                                that there is still something to look at under
+                                your clothes. Men love underwear, and not just
+                                red. It turns them on and drives them crazy.
+                                And imagine what delight you can cause a man,
+                                every day offering him something new, a new
+                                self and a new game! A naked body is not as
+                                sexy as a body in beautiful exquisite lingerie.</p>
+                            <p> It's all about the right attitude, inner
+                                self-confidence and femininity, which in no
+                                case should be lost or hidden. Feel
+                                irresistible and feminine and believe in it
+                                with every cell of your being. It will
+                                definitely be noticed by others. And one of the
+                                most important attributes of irresistibility
+                                and femininity is underwear.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {% for post in posts %}
+                <div class="col-md-3">
+                    <div class="single-post">
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        {% else %}
+                        <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}">
+                        {% endif %}
+                        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                        <h4><span></span></span>
+                        </h4>
+                        {{ post.content|truncatewords_html:20|safe }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% if page_obj.has_other_pages %}
+    <div class="pegination">
+        <div class="nav-links">
+            <a class="page-numbers"
+               href="?page={{page_obj.prev_page_number }}"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            {% for pag in page_obj.paginator.page_range %}
+            {% if page_obj.number == pag %}
+            <span class="page-numbers current">{{ pag }}</span>
+            {% else %}
+            <a class="page-numbers" href="?page={{pag}}">{{pag}}</a>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <a class="page-numbers"
+               href="?page={{page_obj.next_page_number }}"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</section>
+
+{% endblock %}

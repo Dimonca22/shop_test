@@ -7,23 +7,28 @@
                     <div class="row">
                         <div class="col-md-9">
                             {% show_menu 'footer-menu'%}
-<!--                            <div class="footer-menu">-->
-<!--                                <ul>-->
-<!--                                    <li class="active"><a href="#">Главная</a></li>-->
-<!--                                    <li><a href="#">Топ</a></li>-->
-<!--                                    <li><a href="#">Низ</a></li>-->
-<!--                                    <li><a href="#">Вход</a></li>-->
-<!--                                    <li><a href="#">Регестрация</a></li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
+                            <div class="footer-menu">
+
+                                <ul>
+                                    <!--                                    <li class="active"><a href="#">Главная</a></li>-->
+                                    <!--                                    <li><a href="#">Топ</a></li>-->
+                                    <!--                                    <li><a href="#">Низ</a></li>-->
+
+                                </ul>
+
+                            </div>
+
                         </div>
                         <div class="col-md-3">
-                            <div class="footer-icon">
-                                <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i
-                                        class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i
-                                        class="fa fa-linkedin" aria-hidden="true"></i></a><a href="#"><i
-                                        class="fa fa-dribbble" aria-hidden="true"></i></a></p>
-                            </div>
+                            <span class="footer-icon">
+
+                                <li> <a href="{% url 'register' %}">Регистрация</a>  |
+                                    <a href="{% url 'login' %}"> Вход</a></li>
+                                <!--                                <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i-->
+                                <!--                                        class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i-->
+                                <!--                                        class="fa fa-linkedin" aria-hidden="true"></i></a><a href="#"><i-->
+                                <!--                                        class="fa fa-dribbble" aria-hidden="true"></i></a></p>-->
+                            </span>
                         </div>
                     </div>
                 </div>

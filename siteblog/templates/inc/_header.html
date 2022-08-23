@@ -8,16 +8,21 @@
                 </div>
             </div>
             <div class="col-md-10">
+
+                <div class="menu">
+                    <ul>
+                        <!--                        <li class="active"><a href="#">Главная</a></li>-->
+                        <!--                        <li><a href="#">Топ</a></li>-->
+                        <!--                        <li><a href="#">Низ</a></li>-->
+                        <li><a> {% if request.user.is_authenticated %}
+                            Добро пожаловать, {{ user.username }} <a href="{% url 'logout' %}">Выход</a></li>
+                        {% else %}
+                        <li><a href="{% url 'login' %}">Вход</a></li>
+                        <li><a href="{% url 'register' %}">Регистрация</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
                 {% show_menu %}
-                <!--                <div class="menu">-->
-                <!--                    <ul>-->
-                <!--                        <li class="active"><a href="#">Главная</a></li>-->
-                <!--                        <li><a href="#">Топ</a></li>-->
-                <!--                        <li><a href="#">Низ</a></li>-->
-                <!--                        <li><a href="#">Вход</a></li>-->
-                <!--                        <li><a href="#">Регистрация</a></li>-->
-                <!--                    </ul>-->
-                <!--                </div>-->
             </div>
         </div>
     </div>
